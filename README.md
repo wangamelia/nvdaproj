@@ -14,10 +14,10 @@ In modern software development, IDEs (Integrated Development Environments) play 
 
 
 ## How to set up NVDA + PyCharm + Java Access Bridge
-Java Access Bridge (JAB) is needed for this add-on to work. It allows many features to become visible to NVDA. Without it, PyCharm is completely inaccessible. 
+Java Access Bridge (JAB) is needed for this add-on to work. It allows many features to become visible to NVDA. Without it, PyCharm is completely inaccessible. Typically these programs should be restarted after changing and if a screenreader is on while setting up, it should also be restarted throughout. 
 1. Enable JAB: This can be done through the command prompt, using the command: (JRE_LOC)\bin\jabswitch -enable, where (JRE_LOC) is the path to JRE on your computer. 
 2. Enable "Support Screen Readers" in Pycharm: This option is located in Settings/Preferences|Appearance & Behavior|System Settings
-3. Add this file to NVDA add-ons: This version of the add-on is not packaged for installation. To test it as it is, place this file in the AppModules folder located in NVDA's Configuration Directory.
+3. Add this file to NVDA add-ons: This version of the add-on is not packaged for installation. To test it as it is, place this file in the AppModules folder located in NVDA's Configuration Directory. Remember to reload plugins after placing files/altering this folder (NVDA+N, tools, reload plugins).
 
 ## Troubleshooting
 * Check that the related files are in the correct places for the programs to work correctly together: WindowsAccessBridge-32.dll in C:\Windows\SysWOW64 and WindowsAccessBridge-64.dll in C:\Windows\System32.
