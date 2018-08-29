@@ -1,4 +1,4 @@
-#Add on for PyCharms
+#Add on for PyCharm
 
 import appModuleHandler
 #import NVDAObjects.JAB
@@ -12,21 +12,36 @@ class AppModule(appModuleHandler.AppModule):
 	def script_lineNum(self, gesture):
 		possibleNum = api.getForegroundObject()
 		name = possibleNum.firstChild.getChild(1).getChild(1).getChild(1).getChild(2).firstChild.next.name
-		#add split to get just num
 		ui.message("line" + name)
 
+		
+	#f2 takes user to any problem areas
+	#shift+f1 brings up the description
+	#if gesture is pressed, desc is read
+	#if there are no more errors to go through, a beep will sound
 	def script_errorSpeak(self, gesture):
 		errorLoc = api.getForegroundObject()
-		error = errorLoc.firstChild.getChild(1).getChild(2).getChild(1).firstChild.firstChild.firstChild.firstChild.firstChild
-		#add split to get just num
-		if error.firstChild is not None:
+		
+		try:
+			error = errorLoc.firstChild.getChild(1).getChild(3).getChild(1).firstChild.firstChild.firstChild.firstChild.firstChild
 			errorMessage = error.name
 			ui.message(errorMessage)
-		else
+		except IndexError:
 			tones.beep(440, 1000)
+
+			
+	def script_runComm(self, gesture):
+		gesture.send()
+		ui.message("run")
+		
+	def script_stopComm(self, gesture):
+		gesture.send()
+		ui.message("stop")
 		
 	
 	__gestures = {
 		"kb:nvda+shift+f3": "lineNum",
-		"kb:nvda+shift+f7": "errorSpeak"
+		"kb:nvda+shift+f7": "errorSpeak",
+		"kb:shift+f10": "runComm",
+		"kb:control+f2": "stopComm"
 	}
