@@ -1,5 +1,5 @@
 # nvdaproj
-In modern software development, IDEs (Integrated Development Environments) play a critical role in efficient workflow but rely heavily on visual cues. NVDA (Non-Visual Desktop Access) is an open-source screen reader offered for free, making it a popular choice for not only programming, but everyday use. My approach to accessibility in IDEs is creating an NVDA add-on for Pycharm as it is a popular choice for professional use but falls behind many others in accessibility for blind programmers.
+In modern software development, IDEs (Integrated Development Environments) play a critical role in efficient workflow but rely heavily on visual cues. NVDA (Non-Visual Desktop Access) is an open-source screen reader offered for free, making it a popular choice for not only programming, but everyday use. My approach to accessibility in IDEs is creating an NVDA add-on for Pycharm Professional as it is a popular choice for professional use but falls behind many others in accessibility for blind programmers.
 
 
 ## add-on features
