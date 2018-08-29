@@ -43,5 +43,5 @@ class AppModule(appModuleHandler.AppModule):
 		"kb:nvda+shift+f3": "lineNum",
 		"kb:nvda+shift+f7": "errorSpeak",
 		"kb:shift+f10": "runComm",
-		"kb:control+f2": "stopComm"
+		"kb:control+f2": "stopComm",
 	}
