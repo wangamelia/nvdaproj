@@ -5,14 +5,33 @@ import appModuleHandler
 import ui
 import api
 import tones
+from keyboardHandler import KeyboardInputGesture
 
 
 class AppModule(appModuleHandler.AppModule):
 #start at foreground to get same navigation
 	def script_lineNum(self, gesture):
+		splitNum = self.lineInfo()
+		loneNum = splitNum[0]
+		ui.message("line" + loneNum)
+	
+	def script_lineCol(self, gesture):
+		splitNum = self.lineInfo()
+		colNum = splitNum[1]
+		ui.message("column" + colNum)
+		
+	def lineInfo(self):
 		possibleNum = api.getForegroundObject()
-		name = possibleNum.firstChild.getChild(1).getChild(1).getChild(1).getChild(2).firstChild.next.name
-		ui.message("line" + name)
+		lineNum = possibleNum.firstChild.getChild(1).lastChild.getChild(1).getChild(2).firstChild
+		nextName = lineNum.next.name
+		if nextName.startswith('CRLF'):
+			lineNum = lineNum.name
+
+		else:
+			lineNum = nextName
+
+		splitNum = lineNum.split(':')
+		return splitNum
 
 		
 	#f2 takes user to any problem areas
@@ -27,13 +46,14 @@ class AppModule(appModuleHandler.AppModule):
 			errorMessage = error.name
 			ui.message(errorMessage)
 		except IndexError:
-			tones.beep(440, 1000)
+			tones.beep(500, 100)
 
 			
 	def script_runComm(self, gesture):
 		gesture.send()
 		ui.message("run")
-		
+		KeyboardInputGesture.fromName("f12").send()
+
 	def script_stopComm(self, gesture):
 		gesture.send()
 		ui.message("stop")
@@ -41,6 +61,7 @@ class AppModule(appModuleHandler.AppModule):
 	
 	__gestures = {
 		"kb:nvda+shift+f3": "lineNum",
+		"kb:nvda+shift+f4": "lineCol",
 		"kb:nvda+shift+f7": "errorSpeak",
 		"kb:shift+f10": "runComm",
 		"kb:control+f2": "stopComm",
