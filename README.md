@@ -3,9 +3,9 @@ In modern software development, IDEs (Integrated Development Environments) play 
 
 
 ## add-on features
-* **Line Numbers/Line Length (NVDA+Shift+F3):** This feature reads aloud line information. Understanding not only the location of lines of code, but in the context of the rest of the structure is important for development, especially for higher level projects and work. Line length gives insight to code style which is very much a visually focused detail important in keeping things clean and understandable by users. 
+* **Line Numbers (NVDA+Shift+F3) and Column Number (NVDA+Shift+F4):** This feature reads aloud line information. Understanding not only the location of lines of code, but in the context of the rest of the structure is important for development, especially for higher level projects and work. Line length gives insight to code style which is very much a visually focused detail important in keeping things clean and understandable by users. 
 
-* **Error Descriptions (NVDA+Shift+F7):** Locating and understanding errors is somewhat accessible in Pycharms with keyboard shortcuts but this action gives no audio cues even with the Java Access Bridge and current screen reader support. This feature works with the existing process and lets the user know what is trying to be communicated when navigating through errors/warnings: f2 navigates through errors, shift+f1 brings up the description, and NVDA+Shift+F7 reads that information aloud. In the case there are none left to navigate through and no error description is presented, a beep will sound instead to notify this. 
+* **Error Descriptions (NVDA+Shift+F7):** Locating and understanding errors is somewhat accessible in Pycharms with keyboard shortcuts but this action gives no audio cues even with the Java Access Bridge and current screen reader support. This feature works with the existing process and lets the user know what is trying to be communicated when navigating through errors/warnings: f2 navigates through errors, ctrl+f1 brings up the description, and NVDA+Shift+F7 reads that information aloud. In the case there are none left to navigate through and no error description is presented, a beep will sound instead to notify this. 
 
 * **Run/Stop:** This feature works with the existing PyCharm commands for running and stopping code as it is another process that gives no no support for accessibility other than silently executing. Using PyCharm's commands, Shift+F10 to run and Control+F2 to stop, speaks the action aloud and directs the carret focus to the respective windows.*
 
@@ -22,3 +22,4 @@ Java Access Bridge (JAB) is needed for this add-on to work. It allows many featu
 ## Troubleshooting
 * Check that the related files are in the correct places for the programs to work correctly together: WindowsAccessBridge-32.dll in C:\Windows\SysWOW64 and WindowsAccessBridge-64.dll in C:\Windows\System32.
 * The name of this file which goes into NVDA's Configuration Directory should match the PyCharm's execution name. For example, pycharm.exe would make this file pycharm.py. Check for other versions of this name, like pycharm64.exe. 
+* PyCharm, especially the Professional version, takes a bit of time to initialize and waiting a few minutes may allow the screenreader and add-on to work properly. 
