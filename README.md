@@ -7,10 +7,7 @@ In modern software development, IDEs (Integrated Development Environments) play 
 
 * **Error Descriptions (NVDA+Shift+F7):** Locating and understanding errors is somewhat accessible in Pycharms with keyboard shortcuts but this action gives no audio cues even with the Java Access Bridge and current screen reader support. This feature works with the existing process and lets the user know what is trying to be communicated when navigating through errors/warnings: f2 navigates through errors, ctrl+f1 brings up the description, and NVDA+Shift+F7 reads that information aloud. In the case there are none left to navigate through and no error description is presented, a beep will sound instead to notify this. 
 
-* **Run/Stop:** This feature works with the existing PyCharm commands for running and stopping code as it is another process that gives no no support for accessibility other than silently executing. Using PyCharm's commands, Shift+F10 to run and Control+F2 to stop, speaks the action aloud and directs the carret focus to the respective windows.*
-
-
-*Still in progress
+* **Run/Stop:** This feature works with the existing PyCharm commands for running and stopping code as it is another process that gives no no support for accessibility other than silently executing. Using PyCharm's commands, Shift+F10 to run and Control+F2 to stop, speaks the action aloud.
 
 
 ## How to set up NVDA + PyCharm + Java Access Bridge
